@@ -2,15 +2,36 @@
   text-align: center;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: clip;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+  * {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
 }
 
 .App-header {
