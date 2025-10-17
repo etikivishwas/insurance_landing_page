@@ -1,0 +1,102 @@
+.testimonialContainer {
+  text-align: center;
+  padding: 3rem 1rem;
+  overflow: hidden;
+}
+
+.testimonialHeading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #004aad;
+  margin-bottom: 2rem;
+  font-family: "Geist mono", monospace;
+  letter-spacing: 2px;
+}
+
+.testimonialCard {
+  max-width: 600px;
+  margin: 0 auto;
+  height: 200px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  text-align: left;
+  transition: transform 0.3s ease;
+  opacity: 0;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-8px);
+}
+
+.testimonialProfile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.profileImg {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+  border: 3px solid #004aad;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  font-family: "Geist mono", monospace;
+}
+
+.profileRole {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 0;
+  font-family: "Geist mono", monospace;
+}
+
+.testimonialText {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Animation for sliding from right to left */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slideIn {
+  animation: slideIn 0.8s ease forwards;
+}
+
+@media (max-width: 768px) {
+  .testimonialCard {
+    height: 220px;
+  }
+}
+
+@media (max-width: 410px) {
+
+  .testimonialCard {
+    height: 300px;
+  }
+}

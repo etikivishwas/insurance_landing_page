@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
+import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
+import PopularPolicies from "./components/PopularPolicies/PopularPolicies";
+import HowItWorks from "./components/HowItWorks/HowItWorks";
+import Testimonial from "./components/Testimonials/Testimonials";
+import AboutPage from "./components/AboutUs/AboutUs";
+import Footer from "./components/Footer/Footer";
+import PoliciesPage from "./components/Policies/Policies";
+
+const HomePage = () => (
+  <>
+    <Navbar />
+    <Hero />
+    <WhyChooseUs />
+    <PopularPolicies />
+    <HowItWorks />
+    <Testimonial />
+    <Footer />
+  </>
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/policies" element={<PoliciesPage />} />
+        <Route path="/policies/:type" element={<PoliciesPage />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,0 +1,100 @@
+.container {
+  width: 92%;
+  background-color: white; /* white background */
+  color: black;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.box {
+  border: 2px solid #004aad; /* purple border */
+  display: inline-block;
+  padding: 30px 40px;
+  border-radius: 12px;
+  max-width: 600px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.contact {
+  margin-top: 20px;
+}
+
+.contactTitle {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.email {
+  display: block;
+  margin-bottom: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.email:hover {
+  color: #00337a;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.phone:hover {
+  color: #00337a;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.icon {
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #00337a;
+}
+
+.footerNote {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.email {
+  margin-bottom: 10px;
+  color: black;
+  font-size: 1rem;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: black;
+  font-size: 1rem;
+}
