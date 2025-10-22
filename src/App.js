@@ -10,6 +10,8 @@ import Testimonial from "./components/Testimonials/Testimonials";
 import AboutPage from "./components/AboutUs/AboutUs";
 import Footer from "./components/Footer/Footer";
 import PoliciesPage from "./components/Policies/Policies";
+import Contact from "./components/Contact/Contact";
+
 
 const HomePage = () => (
   <>
@@ -19,6 +21,7 @@ const HomePage = () => (
     <PopularPolicies />
     <HowItWorks />
     <Testimonial />
+    <Contact />
     <Footer />
   </>
 );

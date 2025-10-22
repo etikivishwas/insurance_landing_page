@@ -1,6 +1,6 @@
 .aboutSection {
   padding: 4rem 8%;
-  background-color: #f8faff;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,5 +41,85 @@
 
   .aboutCard p {
     font-size: 0.95rem;
+  }
+}
+
+/* ================= AWARDS SECTION ================= */
+
+.awardsSection {
+  background-color: white;
+  text-align: center;
+  padding: 4rem 8%;
+}
+
+.awardsTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #004aad;
+  margin-bottom: 1.5rem;
+}
+
+.awardsImage {
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.awardsTableWrapper {
+  background: #f8faff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.awardsSubTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #004aad;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.awardsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.awardsTable thead {
+  background-color: #4b0082;
+  color: #fff;
+}
+
+.awardsTable th,
+.awardsTable td {
+  padding: 1rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.awardsTable tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .awardsSection {
+    padding: 3rem 5%;
+  }
+
+  .awardsImage {
+    max-width: 320px;
+  }
+
+  .awardsTable th,
+  .awardsTable td {
+    font-size: 0.9rem;
+    padding: 0.8rem;
   }
 }

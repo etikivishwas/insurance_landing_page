@@ -58,7 +58,7 @@
 
 /* CENTER SECTION — NAV LINKS */
 .navLinks {
-  flex: 2; /* ensures center alignment */
+  flex: 1.27; /* ensures center alignment */
   display: flex;
   align-items: center;
   justify-content: center;

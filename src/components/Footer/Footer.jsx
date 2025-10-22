@@ -48,7 +48,7 @@ const Footer = () => {
       </div>
 
       <p className={styles.footerNote}>
-        © 2025 YBS Industries LLP. All rights reserved.
+        © 2025 Milieu Globals. All rights reserved.
       </p>
     </footer>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./styles.module.css";
 import Navbar from "../Navbar/Navbar";
@@ -21,10 +21,13 @@ import {
   ClipboardCheck,
 } from "lucide-react";
 
+import policyDetails from "./PolicyDetails"; // 👈 Import your details file
+
 const Policies = () => {
   const [selectedPolicy, setSelectedPolicy] = useState(null);
   const [activeTab, setActiveTab] = useState("highlights");
   const { type } = useParams();
+  const detailsRef = useRef(null); // 👈 Reference for smooth scroll to details section
 
   const policies = [
     {
@@ -84,7 +87,7 @@ const Policies = () => {
         "Comprehensive coverage for aircraft, crew, and liability exposures.",
     },
     {
-      id: "personal-accident",
+      id: "personalaccident",
       icon: <ShieldPlus className={styles.icon} />,
       title: "Personal Accident Insurance",
       description:
@@ -98,7 +101,7 @@ const Policies = () => {
         "Protects against third-party claims for injury or property damage.",
     },
     {
-      id: "marine-hull",
+      id: "marinehull",
       icon: <Ship className={styles.icon} />,
       title: "Marine Hull Insurance",
       description:
@@ -119,7 +122,7 @@ const Policies = () => {
         "Specialized products covering various non-traditional risks.",
     },
     {
-      id: "marine-cargo",
+      id: "marinecargo",
       icon: <Package className={styles.icon} />,
       title: "Marine Cargo Insurance",
       description:
@@ -132,7 +135,10 @@ const Policies = () => {
       const found = policies.find((p) => p.id === type);
       if (found) {
         setSelectedPolicy(found);
-        window.scrollTo({ top: 400, behavior: "smooth" });
+        setActiveTab("highlights");
+        setTimeout(() => {
+          detailsRef.current?.scrollIntoView({ behavior: "smooth" });
+        }, 200);
       }
     }
   }, [type]);
@@ -143,7 +149,10 @@ const Policies = () => {
     } else {
       setSelectedPolicy(policy);
       setActiveTab("highlights");
-      window.scrollTo({ top: 400, behavior: "smooth" });
+      // 👇 Smooth scroll to details after rendering
+      setTimeout(() => {
+        detailsRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
     }
   };
 
@@ -157,6 +166,7 @@ const Policies = () => {
           health, assets, and future.
         </p>
 
+        {/* 🔹 Policies Grid */}
         <div className={styles.cardGrid}>
           {policies.map((policy, index) => (
             <div key={index} className={styles.card}>
@@ -175,9 +185,12 @@ const Policies = () => {
           ))}
         </div>
 
+        {/* 🔹 Policy Details Section */}
         {selectedPolicy && (
-          <div className={styles.detailsCard}>
+          <div ref={detailsRef} className={styles.detailsCard}>
             <h3 className={styles.detailsTitle}>{selectedPolicy.title}</h3>
+
+            {/* Tabs */}
             <div className={styles.tabContainer}>
               <div
                 className={`${styles.tab} ${
@@ -199,21 +212,28 @@ const Policies = () => {
               </div>
             </div>
 
+            {/* Content Area */}
             <div className={styles.detailsContent}>
               {activeTab === "highlights" ? (
-                <p>
-                  {selectedPolicy.title} offers comprehensive protection
-                  tailored to your specific needs. It covers multiple risk
-                  factors, ensures quick settlements, and provides reliable
-                  financial support during unforeseen circumstances.
-                </p>
+                policyDetails[selectedPolicy.id]?.highlights ? (
+                  <ul>
+                    {policyDetails[selectedPolicy.id].highlights.map(
+                      (point, i) => (
+                        <li key={i}>{point}</li>
+                      )
+                    )}
+                  </ul>
+                ) : (
+                  <p>No highlights available for this policy.</p>
+                )
+              ) : policyDetails[selectedPolicy.id]?.claims ? (
+                <ul>
+                  {policyDetails[selectedPolicy.id].claims.map((step, i) => (
+                    <li key={i}>{step}</li>
+                  ))}
+                </ul>
               ) : (
-                <p>
-                  The claim process for {selectedPolicy.title} is simple and
-                  hassle-free. Submit your documents online, verify the claim
-                  status, and receive your reimbursement quickly through a
-                  secure digital process.
-                </p>
+                <p>No claim process available for this policy.</p>
               )}
             </div>
           </div>
