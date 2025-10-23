@@ -83,6 +83,15 @@
     padding: 3rem 5%;
   }
 
+  .heroImage {
+    margin-left: 0;
+  }
+
+  .heroContent h1 {
+    margin-left: 0;
+    color: #004aad;
+  }
+
   .buttons {
     justify-content: center;
   }
