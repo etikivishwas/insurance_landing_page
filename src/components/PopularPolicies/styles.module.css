@@ -78,6 +78,24 @@
   color: #00337a;
 }
 
+.fullscreenLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.card {
+  cursor: pointer;
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
   .section {
@@ -86,5 +104,17 @@
 
   .title {
     font-size: 1.8rem;
+  }
+  .icon {
+    animation: pulse 2.5s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
   }
 }

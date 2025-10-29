@@ -1,12 +1,59 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
 import { ShieldCheck, Zap, Layers, Headphones } from "lucide-react";
-import image1 from './img1.png';
-import image2 from './img2.png';
-import image3 from './img3.png';
-import image4 from './img4.png';
+import image1 from "./img1.png";
+import image2 from "./img2.png";
+import image3 from "./img3.png";
+import image4 from "./img4.png";
 
 const WhyChooseUs = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Detect when section enters viewport
+  useEffect(() => {
+  if (!sectionRef.current) return;
+
+  let ticking = false;
+  const triggerFraction = 0.85; // 0..1 -> 0.85 means trigger when section top is within 85% of viewport height (earlier)
+
+  const check = () => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    // condition: when section top is less than (viewportHeight * triggerFraction)
+    if (rect.top <= viewportHeight * triggerFraction) {
+      setIsVisible(true);
+      // remove listeners after trigger to avoid re-triggering
+      window.removeEventListener("scroll", onScroll, { passive: true });
+      window.removeEventListener("resize", onScroll);
+    }
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(check);
+      ticking = true;
+    }
+  };
+
+  // initial check in case page already scrolled near the section
+  check();
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+
+  return () => {
+    window.removeEventListener("scroll", onScroll, { passive: true });
+    window.removeEventListener("resize", onScroll);
+  };
+}, [sectionRef]);
+
+
+
+
   const features = [
     {
       icon: <ShieldCheck className={styles.icon} />,
@@ -33,9 +80,15 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className={styles.section} id="why-choose-us">
-      <h2 className={styles.title}>Why Choose Us</h2>
-      <p className={styles.subtitle}>
+    <section
+      className={styles.section}
+      id="why-choose-us"
+      ref={sectionRef}
+    >
+      <h2 className={`${styles.title} ${isVisible ? styles.animate : ""}`}>
+        Why Choose Us
+      </h2>
+      <p className={`${styles.subtitle} ${isVisible ? styles.animate : ""}`}>
         Experience trusted insurance solutions backed by New India Assurance.
       </p>
 
@@ -48,76 +101,62 @@ const WhyChooseUs = () => {
           </div>
         ))}
       </div>
+
       <div className={styles.container}>
         <div className={styles.items}>
           <div className={styles.item1}>
             <p className={styles.para2}>REPUTATION</p>
-            <p className={styles.para1}>We take great pride in our reputation. Providing reliable insurance coverage to our customer for 103+ years have earned us a strong reputation in the industry. We have a proven track record of providing timely hassle-free claims processing, which is a testament to our commitment to customer satisfaction. The financial stability and strength of our Company gives our customers peace of mind, safe in the knowledge that we can meet our obligations when they need us the most. When you choose us, you can be assured that we have your best interest in mind.
+            <p className={styles.para1}>
+              We take great pride in our reputation. Providing reliable insurance coverage to our customer for 103+ years have earned us a strong reputation in the industry. We have a proven track record of providing timely hassle-free claims processing, which is a testament to our commitment to customer satisfaction. The financial stability and strength of our Company gives our customers peace of mind, safe in the knowledge that we can meet our obligations when they need us the most. When you choose us, you can be assured that we have your best interest in mind.
             </p>
           </div>
           <div className={styles.item2}>
             <div className={styles.imageSection}>
-              <img
-                src={image1}
-                alt="Hero"
-                className={styles.heroImage}
-              />
+              <img src={image1} alt="Hero" className={styles.heroImage} />
             </div>
-
           </div>
         </div>
+
         <div className={styles.items}>
           <div className={styles.item2}>
             <div className={styles.imageSection}>
-              <img
-                src={image2}
-                alt="Hero"
-                className={styles.heroImage}
-              />
+              <img src={image2} alt="Hero" className={styles.heroImage} />
             </div>
-
           </div>
           <div className={styles.item1}>
-            <p className={styles.para2}>RANGE OF PRODUCTS </p>
-            <p className={styles.para1}>We offer a wide range of insurance products to meet the diverse needs of our customers. Whether you are looking for coverage for your home, health, vehicle or business, we have a policy to fit your needs. Our team of experience professionals will work with you to understand your needs and provide the best insurance solution for the same. We are committed to making insurance accessible and easy to understand. Choosing us, you can be confident that you have the coverage you need to protect the things that matter the most.
+            <p className={styles.para2}>RANGE OF PRODUCTS</p>
+            <p className={styles.para1}>
+              We offer a wide range of insurance products to meet the diverse needs of our customers. Whether you are looking for coverage for your home, health, vehicle or business, we have a policy to fit your needs. Our team of experience professionals will work with you to understand your needs and provide the best insurance solution for the same. We are committed to making insurance accessible and easy to understand. Choosing us, you can be confident that you have the coverage you need to protect the things that matter the most.
             </p>
           </div>
-
         </div>
+
         <div className={styles.items}>
           <div className={styles.item1}>
-            <p className={styles.para2}>NETWORK OF OFFICES </p>
-            <p className={styles.para1}>We have a vast network of offices across the country. We understand that the insurance needs can vary from region to region, which is why our offices are staffed with experienced professionals who understand the local market and can provide tailored insurance solutions to meet your unique needs. With our network of offices, you can be confident that you have access to the best insurance products and services available, no matter where you are located.
+            <p className={styles.para2}>NETWORK OF OFFICES</p>
+            <p className={styles.para1}>
+              We have a vast network of offices across the country. We understand that the insurance needs can vary from region to region, which is why our offices are staffed with experienced professionals who understand the local market and can provide tailored insurance solutions to meet your unique needs. With our network of offices, you can be confident that you have access to the best insurance products and services available, no matter where you are located.
             </p>
           </div>
           <div className={styles.item2}>
             <div className={styles.imageSection}>
-              <img
-                src={image3}
-                alt="Hero"
-                className={styles.heroImage}
-              />
+              <img src={image3} alt="Hero" className={styles.heroImage} />
             </div>
-
           </div>
         </div>
+
         <div className={styles.items}>
           <div className={styles.item2}>
             <div className={styles.imageSection}>
-              <img
-                src={image4}
-                alt="Hero"
-                className={styles.heroImage}
-              />
+              <img src={image4} alt="Hero" className={styles.heroImage} />
             </div>
-
           </div>
           <div className={styles.item1}>
-            <p className={styles.para2}>TRUSTWORTHINESS </p>
-            <p className={styles.para1}>At New India, trust is at the heart of everything we do. Our commitment to trustworthiness is reflected in everything we do; from the comprehensive insurance products we offer to our prompt and fair claims handling process. We are dedicated to delivering our promises and ensuring that our customers have a positive experience with us every step of the way. For us, trust is not just a word, it’s a way of doing business.
+            <p className={styles.para2}>TRUSTWORTHINESS</p>
+            <p className={styles.para1}>
+              At New India, trust is at the heart of everything we do. Our commitment to trustworthiness is reflected in everything we do; from the comprehensive insurance products we offer to our prompt and fair claims handling process. We are dedicated to delivering our promises and ensuring that our customers have a positive experience with us every step of the way. For us, trust is not just a word, it’s a way of doing business.
             </p>
           </div>
-
         </div>
       </div>
     </section>

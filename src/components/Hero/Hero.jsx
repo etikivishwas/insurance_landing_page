@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
-import heroImage from "./heroImage.png";
+import Lottie from "lottie-react";
+import heroAnimation from "./Vehicle.json";
 
 const Hero = () => {
   const [index, setIndex] = useState(0);
@@ -58,9 +59,10 @@ const Hero = () => {
 
       {/* Right Image */}
       <div className={styles.heroImage}>
-        <img
-          src={heroImage}
-          alt="Insurance Protection"
+        <Lottie
+          animationData={heroAnimation}
+          loop={true}
+          autoplay={true}
           className={styles.image}
         />
       </div>
