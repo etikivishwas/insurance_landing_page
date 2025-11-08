@@ -10,7 +10,7 @@ const testimonials = [
   },
   {
     name: "Nityanand Koli",
-    text: "I am a financial advisor working with many insurance companies, but believe me, this is the only company that never makes excuses when a claim arises. In my 16 years of experience, I can confidently say it is the only truly ethical company in India.",
+    text: "I am a financial advisor working with many insurance companies, but believe me, this is the only company that never makes excuses when a claim arises.",
     img: Image,
   },
   {

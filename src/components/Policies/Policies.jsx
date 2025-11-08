@@ -32,98 +32,98 @@ const Policies = () => {
   const policies = [
     {
       id: "motor",
-      icon: <Car className={styles.icon} />,
+      icon: <Car className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Motor Insurance",
       description:
         "Ensure complete protection for your vehicle against accidents, theft, and damages with flexible coverage options.",
     },
     {
       id: "home",
-      icon: <Home className={styles.icon} />,
+      icon: <Home className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Home Insurance",
       description:
         "Protect your home and valuables from fire, theft, and natural disasters.",
     },
     {
       id: "health",
-      icon: <HeartPulse className={styles.icon} />,
+      icon: <HeartPulse className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Health Insurance",
       description:
         "Comprehensive medical coverage for individuals and families.",
     },
     {
       id: "travel",
-      icon: <Plane className={styles.icon} />,
+      icon: <Plane className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Travel Insurance",
       description:
         "Covers trip cancellations, delays, medical emergencies, and lost luggage.",
     },
     {
       id: "agriculture",
-      icon: <Sprout className={styles.icon} />,
+      icon: <Sprout className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Agriculture Insurance",
       description:
         "Protect crops and livestock against natural calamities and losses.",
     },
     {
       id: "credit",
-      icon: <CreditCard className={styles.icon} />,
+      icon: <CreditCard className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Credit Insurance",
       description:
         "Safeguard your business from financial losses due to credit defaults.",
     },
     {
       id: "engineering",
-      icon: <Wrench className={styles.icon} />,
+      icon: <Wrench className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Engineering Insurance",
       description:
         "Coverage for machinery, plants, and construction projects against damage or failure.",
     },
     {
       id: "aviation",
-      icon: <PlaneTakeoff className={styles.icon} />,
+      icon: <PlaneTakeoff className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Aviation Insurance",
       description:
         "Comprehensive coverage for aircraft, crew, and liability exposures.",
     },
     {
       id: "personalaccident",
-      icon: <ShieldPlus className={styles.icon} />,
+      icon: <ShieldPlus className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Personal Accident Insurance",
       description:
         "Financial protection in case of accidental injury, disability, or death.",
     },
     {
       id: "liability",
-      icon: <ShieldCheck className={styles.icon} />,
+      icon: <ShieldCheck className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Liability Insurance",
       description:
         "Protects against third-party claims for injury or property damage.",
     },
     {
       id: "marinehull",
-      icon: <Ship className={styles.icon} />,
+      icon: <Ship className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Marine Hull Insurance",
       description:
         "Covers vessels, ships, and boats against damage, collision, or loss.",
     },
     {
       id: "fire",
-      icon: <Flame className={styles.icon} />,
+      icon: <Flame className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Fire Insurance",
       description:
         "Covers damages to property or goods due to fire, lightning, or explosion.",
     },
     {
       id: "misc",
-      icon: <Layers className={styles.icon} />,
+      icon: <Layers className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Miscellaneous Insurance",
       description:
         "Specialized products covering various non-traditional risks.",
     },
     {
       id: "marinecargo",
-      icon: <Package className={styles.icon} />,
+      icon: <Package className={`${styles.icon} ${styles.floatIcon}`} />,
       title: "Marine Cargo Insurance",
       description:
         "Protection for goods in transit against loss or damage by sea, air, or land.",

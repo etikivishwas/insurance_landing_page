@@ -14,19 +14,25 @@ const Hero = () => {
     return () => clearTimeout(t);
   }, [index, words.length]);
 
-  // Scroll to the "Popular Policies" section
-  const scrollToPolicies = () => {
-    const section = document.getElementById("popular-policies");
+  // 🔹 Smooth scroll to "Why Choose Us" section
+  const scrollToWhyChooseUs = () => {
+    const section = document.getElementById("why-choose-us");
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
 
-  // Scroll to the Contact form section
-  const scrollToContact = () => {
-    const section = document.getElementById("contact-section");
+  // Scroll to "Popular Policies" section
+  const scrollToPolicies = () => {
+    const section = document.getElementById("popular-policies");
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
 
@@ -47,17 +53,19 @@ const Hero = () => {
         </p>
 
         <div className={styles.buttons}>
-          <button className={styles.primaryBtn} onClick={scrollToContact}>
-            Get a Quote
+          {/* 🔹 "Learn More" scrolls to Why Choose Us */}
+          <button className={styles.primaryBtn} onClick={scrollToWhyChooseUs}>
+            Learn More
           </button>
 
+          {/* "View Policies" scrolls to Popular Policies */}
           <button className={styles.secondaryBtn} onClick={scrollToPolicies}>
             View Policies
           </button>
         </div>
       </div>
 
-      {/* Right Image */}
+      {/* Right Lottie Animation */}
       <div className={styles.heroImage}>
         <Lottie
           animationData={heroAnimation}

@@ -42,7 +42,7 @@
 }
 
 .iconWrapper {
-  background-color: #eaf2ff;
+  background-color: #f8faff;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -169,3 +169,18 @@
     padding: 0.5rem;
   }
 }
+
+/* ===== Floating Icon Animation ===== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.floatIcon {
+  animation: float 3s ease-in-out infinite;
+}
+
